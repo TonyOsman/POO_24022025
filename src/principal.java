@@ -26,5 +26,21 @@ public class principal {
 
 
 
+        System.out.println("""
+                
+                Deseja alterar um cadastro? S ou N """);
+        if(sc.next().equalsIgnoreCase("S")){
+            System.out.println("INFORME O ID DO CLIENTE DQUE DESEJA ALTERAR: ");
+            c1.setIdCliente(sc.nextInt());
+            System.out.println("INFORME O NOVO EMAIL: ");
+            c1.setEmail(sc.next());
+            System.out.println("Informe o novo telefone: ");
+            c1.setTelefone(sc.next());
+
+            //faltar fazer -> c1.alterarCliente();
+        }else {
+            System.out.println("ENCERRANDO...");
+        }
+
     }
 }
