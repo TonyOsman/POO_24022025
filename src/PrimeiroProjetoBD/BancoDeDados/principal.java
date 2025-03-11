@@ -28,7 +28,7 @@ public class principal {
 
 
         System.out.println("""
-              
+          
                 Deseja alterar um cadastro? S ou N """);
         if(sc.next().equalsIgnoreCase("S")){
             System.out.println("INFORME O ID DO CLIENTE DQUE DESEJA ALTERAR: ");

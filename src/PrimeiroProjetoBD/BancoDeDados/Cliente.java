@@ -84,7 +84,7 @@ public class Cliente {
             pstmt.setString(1, this.email);
             pstmt.setString(2, this.telefone);
             pstmt.setInt(3, this.idCliente);
-            pstmt.execute();
+            pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -97,6 +97,7 @@ public class Cliente {
         try {
             pstmt =cnx.prepareStatement(sql);
             pstmt.setInt(1,this.idCliente);
+            pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
