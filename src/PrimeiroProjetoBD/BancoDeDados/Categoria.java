@@ -24,13 +24,13 @@ public class Categoria {
         return descricao;
     }
 
-    public void inserirCategoria(){
+    public void inserirCategoria() {
         Connection con = bd_oracle.obterConexao();
         PreparedStatement stmt;
 
         String sql = "INSERT INTO CATEGORIA (IDCATEGORIA,DESCRICAO) VALUES (?, ?) ";
 
-        try{
+        try {
             stmt = con.prepareStatement(sql);
             stmt.setInt(1, this.idCategoria);
             stmt.setString(2, this.descricao);
@@ -41,11 +41,11 @@ public class Categoria {
         }
     }
 
-    public void alterarCategoria(){
+    public void alterarCategoria() {
         Connection con = bd_oracle.obterConexao();
         PreparedStatement stmt;
-        try{
-            String sql ="UPDATE CATEGORIA SET DESCRICAO = ? WHERE IDCATEGORIA = ? ";
+        try {
+            String sql = "UPDATE CATEGORIA SET DESCRICAO = ? WHERE IDCATEGORIA = ? ";
             stmt = con.prepareStatement(sql);
             stmt.setString(1, this.descricao);
             stmt.setInt(2, this.idCategoria);
@@ -55,6 +55,21 @@ public class Categoria {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public void excluirCategoria() {
+        Connection con = bd_oracle.obterConexao();
+        PreparedStatement stmt;
+        String sql = "DELETE FROM CATEGORIA WHERE IDCATEGORIA = ?";
+        try {
+            stmt = con.prepareStatement(sql);
+            stmt.setInt(1, this.idCategoria);
+            stmt.executeUpdate();
+            System.out.println("Categoria excluída com sucesso !");
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

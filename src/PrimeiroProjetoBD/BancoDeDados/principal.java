@@ -77,6 +77,15 @@ public class principal {
             cat1.setDescricao(sc.next());
 
             cat1.alterarCategoria();
+        }else{
+            System.out.println("encerando....");
+        }
+
+        System.out.println("Deseja Excluir alguma categoriaa? S ou N");
+        if (sc.next().equalsIgnoreCase("s")){
+            System.out.println("informe o id da categoria: ");
+            cat1.setIdCategoria(sc.nextInt());
+            cat1.excluirCategoria();
         }
     }
 }
