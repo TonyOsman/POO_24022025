@@ -51,5 +51,32 @@ public class principal {
             c1.excluirCliente();
 
         }
+
+
+
+        //categoriaaaaaaaaa
+        Categoria cat1 = new Categoria();
+        System.out.println("Informe o id da categoria: ");
+        cat1.setIdCategoria(sc.nextInt());
+
+        System.out.println("Informe a descrição da categoria: ");
+        cat1.setDescricao(sc.next());
+
+        cat1.inserirCategoria();
+
+        System.out.println("""
+                
+                DESEJA ALTERAR A CATEGORIA???????????³???? S ou N
+                
+                """);
+        if(sc.next().equalsIgnoreCase("S")){
+            System.out.println("informe o nove Id: ");
+            cat1.setIdCategoria(sc.nextInt());
+
+            System.out.println("informe a nova desrição: ");
+            cat1.setDescricao(sc.next());
+
+            cat1.alterarCategoria();
+        }
     }
 }
