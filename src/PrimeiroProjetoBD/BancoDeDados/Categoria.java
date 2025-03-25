@@ -2,7 +2,10 @@ package PrimeiroProjetoBD.BancoDeDados;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Categoria {
     private Integer idCategoria;
@@ -72,4 +75,41 @@ public class Categoria {
         }
 
     }
+
+    public List<Categoria> pesquisarCategoria(){
+        Connection con = bd_oracle.obterConexao();
+        PreparedStatement stmt;
+
+        String sql = "SELECT * FROM CATEGORIA";
+
+        List<Categoria> listCategorias = new ArrayList<>();
+
+        try{
+        stmt = con.prepareStatement(sql);
+        ResultSet result = stmt.executeQuery(sql);
+
+        if(!result.next()){
+            System.out.println("Não há linhas para exibir! ");
+        }
+            System.out.println("---CATEGORIAS---");
+        while (result.next()){
+            Categoria c = new Categoria();
+            c.idCategoria = result.getInt(("IDCATEGORIA"));
+            c.descricao = result.getString("DESCRICAO");
+            listCategorias.add(c);
+        }
+    } catch (SQLException e) {
+            throw new RuntimeException(e);
+    }
+        return listCategorias;
+    }
+
+    @Override
+    public String toString() {
+        return "Categoria{" +
+                "idCategoria=" + idCategoria +
+                ", descricao='" + descricao + '\'' +
+                '}';
+    }
 }
+

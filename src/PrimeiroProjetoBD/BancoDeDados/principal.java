@@ -25,12 +25,10 @@ public class principal {
         c1.insereCliente();
 
 
-
-
         System.out.println("""
-          
+                          
                 Deseja alterar um cadastro? S ou N """);
-        if(sc.next().equalsIgnoreCase("S")){
+        if (sc.next().equalsIgnoreCase("S")) {
             System.out.println("INFORME O ID DO CLIENTE DQUE DESEJA ALTERAR: ");
             c1.setIdCliente(sc.nextInt());
             System.out.println("INFORME O NOVO EMAIL: ");
@@ -40,18 +38,17 @@ public class principal {
 
             c1.alteraCliente();
 
-        }else {
+        } else {
             System.out.println("ENCERRANDO...");
         }
 
         System.out.println("Desje excluir um cadastro? S ou N ");
-        if (sc.next().equalsIgnoreCase("S")){
+        if (sc.next().equalsIgnoreCase("S")) {
             System.out.println("Digite o ID do cliente que deseja excluir: ");
             c1.setIdCliente(sc.nextInt());
             c1.excluirCliente();
 
         }
-
 
 
         //categoriaaaaaaaaa
@@ -65,11 +62,11 @@ public class principal {
         cat1.inserirCategoria();
 
         System.out.println("""
-                
+                                
                 DESEJA ALTERAR A CATEGORIA???????????³???? S ou N
-                
+                                
                 """);
-        if(sc.next().equalsIgnoreCase("S")){
+        if (sc.next().equalsIgnoreCase("S")) {
             System.out.println("informe o nove Id: ");
             cat1.setIdCategoria(sc.nextInt());
 
@@ -77,15 +74,25 @@ public class principal {
             cat1.setDescricao(sc.next());
 
             cat1.alterarCategoria();
-        }else{
+        } else {
             System.out.println("encerando....");
         }
 
         System.out.println("Deseja Excluir alguma categoriaa? S ou N");
-        if (sc.next().equalsIgnoreCase("s")){
+        if (sc.next().equalsIgnoreCase("s")) {
             System.out.println("informe o id da categoria: ");
             cat1.setIdCategoria(sc.nextInt());
             cat1.excluirCategoria();
+        }
+
+
+
+        //pesquisar
+        System.out.println("""
+                
+                ---CATEGORIAS DISPONIVEIS---""");
+        for (Categoria c : cat1.pesquisarCategoria()){
+            System.out.println(c);
         }
     }
 }
