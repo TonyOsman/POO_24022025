@@ -94,5 +94,7 @@ public class principal {
         for (Categoria c : cat1.pesquisarCategoria()){
             System.out.println(c);
         }
+
+        //adicionar exibição de produto
     }
 }

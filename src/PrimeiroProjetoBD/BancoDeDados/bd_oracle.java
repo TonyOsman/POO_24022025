@@ -20,5 +20,6 @@ public class bd_oracle {
             e.printStackTrace();
         }
         return conexao;
+
     }
 }
